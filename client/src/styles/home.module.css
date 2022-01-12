@@ -1,3 +1,26 @@
 .component {
     height: 300vh;
 }
+.claimRewards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(221.06deg, var(--secondary-color) 0%, var(--secondary-color) 0.01%, var(--main-color) 100%);
+    width: 400px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+}
+.claimRewards p:first-of-type {
+    font-size: 14px;
+    opacity: .6;
+}
+.claimRewards p:last-of-type {
+    font-size: 22px;
+    font-weight: 600;
+}
+.claimRewards img {
+    height: 100%;
+    width: auto;
+}

@@ -1,5 +1,5 @@
 .menu {
-    background-color: white;
+    background-color: var(--light-grey);
     box-shadow: 4px 0 0 20px black;
 }
 .title {
@@ -11,6 +11,9 @@
     flex-direction: column;
 }
 .links a {
+    position: relative;
+    display: flex;
+    align-items: center;
     padding: 10px 0;
     text-decoration: none;
     color: black;
@@ -19,17 +22,46 @@
 .links a:hover {
     background-color: rgba(216, 216, 216, 0.1);
 }
+.links .active {
+    color: var(--main-color);
+}
+.links .active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 80%;
+    background-color: var(--main-color);
+    border-radius: 0 10px 10px 0;
+}
+.links svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
 .bottomLinks {
     margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
 }
 .bottomLinks a {
+    display: flex;
+    align-items: center;
     color: black;
     opacity: .3;
     font-size: 14px;
     text-decoration: none;
-    margin-left: 20px;
+    margin: 5px 0 5px 20px;
     transition: opacity .3s;
 }
 .bottomLinks a:hover {
+    opacity: 1;
+}
+.bottomLinks svg {
+    width: 17px;
+    height: 17px;
+    margin-right: 5px;
+}
+.bottomLinks .active {
     opacity: 1;
 }

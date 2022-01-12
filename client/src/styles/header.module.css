@@ -4,8 +4,12 @@
     justify-content: flex-end;
     padding-right: 20px;
 }
-.header img {
+.header a {
+    color: var(--main-color);
+}
+.header svg {
     height: 35px;
     width: 35px;
     margin-left: 10px;
+    fill: var(--main-color);
 }
