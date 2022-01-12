@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Rewards() {
   return (
-    <div>
+    <div className={`component`}>
       <p>Récompenses</p>
     </div>
   );

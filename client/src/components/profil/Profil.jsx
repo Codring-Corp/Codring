@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 export default function Profil() {
   let { userId } = useParams();
   return (
-    <div>
+    <div className={`component`}>
       <p>Ton profil est là espèce de sombre {userId} de pute </p>
     </div>
   );

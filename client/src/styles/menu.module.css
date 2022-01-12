@@ -1,0 +1,35 @@
+.menu {
+    background-color: white;
+    box-shadow: 4px 0 0 20px black;
+}
+.title {
+    margin-top: 5vh;
+    text-align: center;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+}
+.links a {
+    padding: 10px 0;
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+}
+.links a:hover {
+    background-color: rgba(216, 216, 216, 0.1);
+}
+.bottomLinks {
+    margin-bottom: 2vh;
+}
+.bottomLinks a {
+    color: black;
+    opacity: .3;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: opacity .3s;
+}
+.bottomLinks a:hover {
+    opacity: 1;
+}
