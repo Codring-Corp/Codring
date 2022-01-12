@@ -2,4 +2,9 @@
     --main-color: #6600cc;
     --secondary-color: #7F48B5;
     --light-grey: #F5F5F5;
+    
+    --error-color: red;
+    --success-color: green;
+    
+    --box-shadow: 0 5px 5px 0 rgb(233 240 243 / 50%), 0 0 0 1px #e6ecf8;
 }

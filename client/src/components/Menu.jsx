@@ -5,8 +5,8 @@ import css from '../styles/menu.module.css'
 
 export default function Menu() {
     let path = useLocation().pathname
-    console.log(path);
-  return (
+
+    return (
     <div className={`menu ${css.menu}`}>
         
       <div className={css.title}>
