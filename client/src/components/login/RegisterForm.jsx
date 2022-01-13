@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import css from '../../styles/login.module.css'
 
@@ -18,7 +18,15 @@ export default function RegisterForm() {
         })
         .then(res => res.json())
         .then(res => {
-            if (res.code === 200) navigate('/')
+            if (res.code === 200) {
+                // Set access token in localStorage and redirect user
+                localStorage.setItem('accessToken', res.accessToken)
+                
+                navigate('/')
+                
+                // Refresh the page to apply localstorage changes
+                window.location.reload(false)
+            }
             else if (res.code === 410) {
                 setError("email", {
                     type: "manual",

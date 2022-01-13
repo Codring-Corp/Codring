@@ -12,6 +12,7 @@
     "figlet": "^1.5.2",
     "get-audio-duration": "^3.0.0",
     "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.6",
     "nodemon": "^2.0.15"
   },
