@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import css from '../../styles/login.module.css'
+import Button from '../forms/Button';
+import ErrorMsg from '../forms/ErrorMsg';
 
-export default function ForgotPasswordForm() {
+export default function ForgotPasswordForm(props) {
     const { register, handleSubmit, formState: { errors } } = useForm();
     
     
@@ -13,10 +14,9 @@ export default function ForgotPasswordForm() {
     
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
-                <h3 className={css.formTitle}>Mot de passe oublié</h3>
-                <div className={`${css.inputGroup} ${errors.email ? css.errorInputGroup : undefined}`}>
-                    <label>Email</label>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h3 className='form-title'>Mot de passe oublié</h3>
+                <div className={`input-group ${errors.email ? 'error-input-group' : undefined}`}>
                     <input {...register(
                         "email",
                         { 
@@ -29,15 +29,20 @@ export default function ForgotPasswordForm() {
                     )}
                     autoFocus
                     />
-                    { errors.email &&
-                        <div className={css.errorMsg}>
-                            <svg viewBox="0 0 256 256"><path d="M128 20a108 108 0 1 0 108 108A108.1 108.1 0 0 0 128 20zm0 192a84 84 0 1 1 84-84a84.1 84.1 0 0 1-84 84zm-12-80V80a12 12 0 0 1 24 0v52a12 12 0 0 1-24 0zm28 40a16 16 0 1 1-16-16a16 16 0 0 1 16 16z" fill="currentColor"></path></svg>
-                            <p>{ errors.email.message }</p>
-                        </div>
-                    }
+                    <label>Email</label>
+                    { errors.email && <ErrorMsg msg={errors.email.message} /> }
+                    
                 </div>
                 
-                <input type="submit" value='Envoyer un mail' className={css.submitBtn} />
+                <Button
+                  type='submit'
+                  isSubmitting={false}
+                  submittingText='Envoi...'
+                >
+                  Réinitialiser
+                </Button>
+                
+                <p className='bottom-link'>Vous avez déjà un compte ? <span onClick={() => props.setShowForm('login')}>Connexion</span></p>
             </form>
         </div>
     )

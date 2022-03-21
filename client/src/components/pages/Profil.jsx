@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { redirect } from '../../redirect'
 
 
-export default function Profil() {
+export default function Profil(props) {
     const navigate = useNavigate()
+    const isAuth = props.isAuth
     
     useEffect(() => {
         // If user isn't auth, redirect him to the login page
-        redirect(navigate)
+        if (!isAuth) navigate('/login')
     })
     
     // Get the id of the user to display

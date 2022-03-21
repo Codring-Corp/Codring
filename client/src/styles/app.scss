@@ -1,0 +1,48 @@
+@import './_variables';
+
+body {
+  font-family: $poppins;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.App {
+  display: flex;
+  &.loading {
+    height: 100vh;
+  }
+}
+.headerAndComponent {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+}
+.menu {
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  width: calc(100% - 20px);
+  height: 70px;
+  background-color: white;
+}
+.componentContainer {
+  height: calc(100vh - 70px);
+  overflow: auto;
+}
+.component {
+  width: calc(100% - 10%);
+  padding: 0 5%;
+  min-height: calc(100vh - 70px);
+  background-color: white;
+}
