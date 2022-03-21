@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className={`component`}>
       <p>Cette page n'existe pas...</p>
-      <Link to='/'>Retour au site prout</Link>
+      <Link to='/'>Retour au site</Link>
     </div>
   );
 }
