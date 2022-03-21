@@ -4,7 +4,7 @@ import { redirect } from '../../redirect'
 
 import css from '../../styles/home.module.css'
 
-import ClaimRewards from "./ClaimRewards";
+import ClaimRewards from "../home/ClaimRewards";
 
 export default function Home() {
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ export default function Home() {
     
   return (
     <div className={`component ${css.component}`}>
-      
+      <p>Accueil</p>
       <Link to='rewards'>
           <ClaimRewards />
       </Link>

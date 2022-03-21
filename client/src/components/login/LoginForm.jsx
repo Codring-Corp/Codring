@@ -12,7 +12,6 @@ export default function LoginForm() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm();
     
     
-    
     const onSubmit = async data => {
         await fetch(`${URL}/auth/login`, {
             method: 'POST',
@@ -23,9 +22,7 @@ export default function LoginForm() {
             if (res.code === 200) {
                 // Set access token in localStorage and redirect user
                 localStorage.setItem('accessToken', res.accessToken)
-                
                 navigate('/')
-             
                 // Refresh the page to apply localstorage changes
                 window.location.reload(false)
             }

@@ -3,18 +3,19 @@ import { Routes, Route } from "react-router-dom";
 import "./styles/app.css";
 import './styles/colors.css'
 
-import About from "./components/about/About";
-import Admin from "./components/admin/Admin";
-import Historic from "./components/historic/Historic";
-import Home from "./components/home/Home";
-import Rewards from "./components/rewards/Rewards";
-import Settings from "./components/settings/Settings";
-import TodoList from "./components/todoList/TodoList";
-import NotFound from "./components/NotFound";
 import Menu from "./components/Menu";
-import Profil from "./components/profil/Profil";
-import Header from "./components/Header";
-import Login from './components/login/Login'
+import Header from './components/Header'
+
+import Home from "./components/pages/Home";
+import Login from "./components/pages/Login";
+import About from "./components/pages/About";
+import Admin from "./components/pages/About";
+import Historic from "./components/pages/Historic";
+import Rewards from "./components/pages/Rewards";
+import Settings from "./components/pages/About";
+import TodoList from "./components/pages/TodoList";
+import Profil from "./components/pages/Profil";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import css from '../../styles/login.module.css'
 
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
-import ForgotPasswordForm from './ForgotPasswordForm'
+import LoginForm from '../login/LoginForm'
+import RegisterForm from '../login/RegisterForm'
+import ForgotPasswordForm from '../login/ForgotPasswordForm'
 
 export default function Login() {
     const [showForm, setShowForm] = useState('login')

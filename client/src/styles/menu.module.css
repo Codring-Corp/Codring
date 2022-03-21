@@ -5,6 +5,7 @@
 .title {
     margin-top: 5vh;
     text-align: center;
+    color: var(--main-color);
 }
 .links {
     display: flex;

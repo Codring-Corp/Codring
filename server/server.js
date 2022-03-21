@@ -14,16 +14,16 @@ app.use(express.text())
 app.use(cors())
 
 const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`Server listenning on port ${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Server listenning on port ${PORT}`)
+  figlet("Codring", (err, data) => console.log(data))
+})
 
 
 // Database importations
 const db = require('./database/export')
 const { route } = require('./routes/auth.routes')
 db.connect
-
-
-//figlet("Codring", (err, data) => console.log(data))
 
 
 // Routes
