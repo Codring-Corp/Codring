@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./styles/app.css";
-import './styles/colors.css'
+import "./styles/colors.css";
 
 import Menu from "./components/Menu";
-import Header from './components/Header'
+import Header from "./components/Header";
 
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
@@ -20,24 +20,23 @@ import NotFound from "./components/pages/NotFound";
 function App() {
   return (
     <div className="App">
-        <Menu />
-      <div className='headerAndComponent'>
+      <Menu />
+      <div className="headerAndComponent">
         <Header />
-        <div className='componentContainer'>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="/historic" element={<Historic />} />
-                <Route path="/rewards" element={<Rewards />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/todo" element={<TodoList />} />
-                <Route path="/profil/:userId" element={<Profil />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+        <div className="componentContainer">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/historic" element={<Historic />} />
+            <Route path="/rewards" element={<Rewards />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/todo" element={<TodoList />} />
+            <Route path="/profil/:userId" element={<Profil />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
-      
       </div>
     </div>
   );
