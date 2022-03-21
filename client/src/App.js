@@ -9,12 +9,13 @@ import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
 import About from "./components/pages/About";
 import Admin from "./components/pages/Admin";
-import Historic from "./components/pages/Historic";
+import Profil from "./components/pages/Profil";
 import Rewards from "./components/pages/Rewards";
+import Historic from "./components/pages/Historic";
 import Settings from "./components/pages/Settings";
 import TodoList from "./components/pages/TodoList";
-import Profil from "./components/pages/Profil";
 import NotFound from "./components/pages/NotFound";
+import ResetPassword from "./components/pages/ResetPassword";
 
 import './styles/colors.css'
 import './styles/app.scss'
@@ -54,7 +55,7 @@ function App() {
     <div className="App">
         <Menu />
       <div className='headerAndComponent'>
-        <Header />
+        <Header user={user} />
         <div className='componentContainer'>
             <Routes>
                 <Route path="/" element={<Home user={user} isAuth={isAuth}/>} />
@@ -66,6 +67,7 @@ function App() {
                 <Route path="/settings" element={<Settings isAuth={isAuth}/>} />
                 <Route path="/todo" element={<TodoList isAuth={isAuth}/>} />
                 <Route path="/profil/:userId" element={<Profil isAuth={isAuth}/>} />
+                <Route path="/reset/password/:token" element={<ResetPassword />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
