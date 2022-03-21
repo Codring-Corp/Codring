@@ -4,6 +4,9 @@ const Accounts = db.accounts
 const bcrypt = require('bcrypt')
 const generateAccessToken = require('../../middleware/token/generateAccessToken')
 
+const mailer = require('../../middleware/mail/export')
+
+
 module.exports = async(req, res) => {
   // Register
   const data = req.body
@@ -31,7 +34,9 @@ module.exports = async(req, res) => {
       .then(user => {
           // When user is saved, generate his JWT
           const accessToken = generateAccessToken(user)
-
+          // Send a registration confirmation email
+          mailer.send.register(email)
+          
           res.status(200).send({ status: 200, accessToken })
       })
   }
