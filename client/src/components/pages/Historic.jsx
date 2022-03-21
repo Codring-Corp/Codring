@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
-import { redirect } from '../../redirect'
+import { useNavigate } from "react-router-dom";
 
 
-export default function Historic() {
+export default function Historic(props) {
     const navigate = useNavigate()
+    const isAuth = props.isAuth
     
     useEffect(() => {
         // If user isn't auth, redirect him to the login page
-        redirect(navigate)
+        if (!isAuth) navigate('/login')
     })
     
   return (

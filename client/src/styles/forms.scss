@@ -1,0 +1,110 @@
+@import './variables';
+
+form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 7px;
+  background: white;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+  .form-title {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .input-group {   
+    position: relative;
+    border-radius: 7px;
+    margin: 30px 0;
+    background: white;
+    label {
+      position: absolute;
+      top: -10px;
+      left: 12px;
+      padding: 0 7px;
+      background: white;
+      color: $color-grey;
+      cursor: text;
+      padding: 0 5px;
+      font-size: 14px;
+      font-weight: 500;
+      user-select: none;
+    }
+    input, textarea {
+      width: calc(100% - 30px - 4px);
+      font-family: $poppins;
+      padding: 13px 15px;
+      background: transparent;
+      color: black;
+      font-size: 15px;
+      border-radius: 7px;
+      border: 2px solid $color-grey;
+      outline: none;
+      resize: vertical;
+      &:focus {
+        border: 2px solid $main-color;
+        & + label {
+          color: $main-color;
+        }
+      }
+    }
+  }
+  .error-input-group {
+    input {
+      border: 2px solid $error-color;
+      &:focus {
+        border: 2px solid $error-color;
+        & + label {
+          color: $error-color;
+        }
+      }
+    }
+    label {
+      color: $error-color;
+    }
+  }
+  .password-eye {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    svg path, svg circle {
+      stroke: $color-grey;
+    }
+  }
+  .submit-btn {
+    margin: 20px 0 10px;
+    user-select: none;
+  }
+  .error-msg {
+    position: absolute;
+    bottom: -24px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    color: $error-color;
+    svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+    }
+  }
+  .bottom-link {
+    font-size: 14px;
+    text-align: center;
+    color: black;
+    font-weight: 300;
+    user-select: none;
+    a, span {
+      text-decoration: underline;
+      color: $main-color;
+      cursor: pointer;
+    }
+  }
+}
+.forgot-password-form {
+  width: 450px;
+}

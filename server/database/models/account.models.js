@@ -1,26 +1,11 @@
 const mongoose = require('mongoose')
 
 const accountSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        require: true
-    },
-    email: {
-        type: String,
-        require: true
-    },
-    password: {
-        type: String,
-        require: true
-    },
-    isAdmin: {
-        type: Boolean,
-        require: true
-    },
-    lastConnection: {
-        type: Date,
-        require: true
-    },
+    username: String,
+    email: String,
+    password: String,
+    role: String, // admin, moderator, user
+    lastConnection: Date,
     personalTodoList: [
         {
             taskId: mongoose.Schema.Types.ObjectId,
@@ -32,7 +17,6 @@ const accountSchema = new mongoose.Schema({
         {
             taskId: String,
             isDone: Boolean
-
         }
     ],
     userPoints: {

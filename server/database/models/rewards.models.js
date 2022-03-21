@@ -1,21 +1,10 @@
 const mongoose = require('mongoose')
 
 const rewardsSchema = new mongoose.Schema({
-    rewardTitle: {
-        type: String,
-        require: true
-    },
-    rewardPoints: {
-        type: Number,
-        require: true
-    },
-    isRewardCycled: {
-        type: Boolean,
-        require: true
-    },
-    rewardCycle: {
-        type: Number
-    },
+    rewardTitle: String,
+    rewardPoints: Number,
+    isRewardCycled: Boolean,
+    rewardCycle: Number
 }, {timestamps: true})
 
 
