@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import AccountsList from "../admin/AccountsList";
+import MessagesList from "../admin/MessagesList";
+
+import '../../styles/admin.scss'
 
 export default function Admin(props) {
     const navigate = useNavigate()
@@ -12,8 +16,9 @@ export default function Admin(props) {
     })
     
   return (
-    <div className={`component`}>
-      <p>Panel Admin</p>
+    <div className='component admin-component'>
+      <AccountsList />
+      <MessagesList />
     </div>
   );
 }

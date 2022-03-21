@@ -1,0 +1,36 @@
+@import './variables';
+
+.admin-component {
+  .accounts-list {
+    .account-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $light-grey;
+      padding: 10px 20px;
+      margin: 20px 0;
+      .data {
+        width: 40%;
+        .points {
+          font-size: 14px;
+          opacity: .4;
+        }
+      }
+      .dates {
+        width: 40%;
+        font-size: 14px;
+        opacity: .5;
+      }
+    }
+  }
+  .messages-list {
+    .message-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      margin: 20px 0;
+      background: $light-grey;
+    }
+  }
+}

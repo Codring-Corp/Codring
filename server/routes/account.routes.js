@@ -12,7 +12,7 @@ const accountController = require('../controllers/accounts/export')
 router.get('/', async(req, res) => {
     // Return all acounts
     const accounts = await Accounts.find()/* .then(accounts => { return accounts }) */
-    res.status(200).send(accounts)
+    res.status(200).send({ status: 200, accounts })
 })
 router.patch('/', authenticateToken, accountController.patch)
 
