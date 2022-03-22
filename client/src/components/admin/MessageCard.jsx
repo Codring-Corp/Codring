@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Trash from '../../assets/svg/Trash'
 import Edit from '../../assets/svg/Edit'
@@ -6,6 +6,15 @@ import Edit from '../../assets/svg/Edit'
 
 export default function MessageCard(props) {
   const msg = props.message
+  const msgId = msg._id
+  
+  const [editMode, setEditMode] = useState(false)
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  
+  const deleteAccount = id => {
+    // Delete account by id
+    console.log('delete', id);
+  }
   
   return (
     <div className='message-card'>
@@ -18,8 +27,19 @@ export default function MessageCard(props) {
       </div>
       
       <div className='btns'>
-        <Edit />
-        <Trash />
+        <button onClick={() => setEditMode(true)}>
+          <Edit />
+        </button>
+        <button onClick={() => setShowDeleteConfirmation(true)}>
+          <Trash />
+        </button>
+        
+        { showDeleteConfirmation &&
+          <div className='confirmation-btn'>
+            <p onClick={() => deleteAccount(msgId)}>Supprimer</p>
+            <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
+          </div>
+        }
       </div>
     </div>
   )

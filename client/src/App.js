@@ -66,7 +66,7 @@ function App() {
                 <Route path="/rewards" element={<Rewards isAuth={isAuth}/>} />
                 <Route path="/settings" element={<Settings isAuth={isAuth}/>} />
                 <Route path="/todo" element={<TodoList isAuth={isAuth}/>} />
-                <Route path="/profil/:userId" element={<Profil isAuth={isAuth}/>} />
+                <Route path="/profile/:userId" element={<Profil isAuth={isAuth}/>} />
                 <Route path="/reset/password/:token" element={<ResetPassword />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

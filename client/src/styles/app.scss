@@ -11,6 +11,11 @@ a {
   color: black;
   text-decoration: none;
 }
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
 .App {
   display: flex;
   &.loading {
@@ -20,7 +25,7 @@ a {
 .headerAndComponent {
   width: calc(100% - 250px);
   min-height: 100vh;
-  background-color: bisque;
+  background-color: white;
   display: flex;
   flex-direction: column;
 }

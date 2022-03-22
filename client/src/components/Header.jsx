@@ -14,7 +14,7 @@ export default function Header(props) {
   return (
     <div className='header'>
         
-      <Link to={`/profil/${user.username}`}>
+      <Link to={`/profile/${user.username}`}>
         <Profil />
       </Link>
     </div>

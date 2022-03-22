@@ -1,28 +1,108 @@
 @import './variables';
 
 .admin-component {
+  height: calc(100vh - 70px);
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, .2);
+    p {
+      font-size: 17px;
+      font-weight: 500;
+      margin: 0 20px;
+      padding: 0 10px;
+      cursor: pointer;
+      &.active::after {
+        content: '';
+        position: relative;
+        left: -10px;
+        display: block;
+        width: calc(100% + 20px);
+        height: 4px;
+        margin-top: 5px;
+        background: $main-color;
+        border-radius: 15px 15px 0 0;
+      }
+    }
+  }
+  .tab {
+    height: calc(100% - 35.5px);
+    overflow: auto;
+  }
+  
   .accounts-list {
+    margin-top: 20px;
     .account-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: $light-grey;
       padding: 10px 20px;
-      margin: 20px 0;
+      border-radius: 7px;
+      .profile-link {
+        width: calc(100% - 58px);
+        display: flex;
+        align-items: center;
+      }
+      &:hover {
+        background: $light-grey;
+      }
       .data {
         width: 40%;
+        .username {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 4px;
+          }
+        }
         .points {
-          font-size: 14px;
+          font-size: 13px;
           opacity: .4;
         }
       }
       .dates {
-        width: 40%;
-        font-size: 14px;
-        opacity: .5;
+        font-size: 13px;
+        opacity: .4;
+      }
+      .btns {
+        display: flex;
+        align-items: center;
+        position: relative;
+        svg {
+          margin-left: 5px;
+          cursor: pointer;
+        }
+        .confirmation-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: flex;
+          p {
+            border-radius: 5px;
+            padding: 3px 8px;
+            cursor: pointer;
+            font-size: 13px;
+            user-select: none;
+            &:first-of-type {
+              background: $error-color;
+              margin-right: 10px;
+              color: white;
+            }
+            &:last-of-type {
+              background: white;
+              color: 1px solid rgba(0, 0, 0, .3);
+              border: 1px solid rgba(0, 0, 0, .3);
+            }
+          }
+        }
       }
     }
   }
+  
   .messages-list {
     .message-card {
       display: flex;
