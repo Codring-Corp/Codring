@@ -15,7 +15,7 @@ export default function Admin(props) {
     const isAuth = props.isAuth
     const user = props.user
     
-    const [activeTab, setActiveTab] = useState('messages')
+    const [activeTab, setActiveTab] = useState('accounts')
     
     useEffect(() => {
         // If user isn't auth, redirect him to the login page

@@ -19,7 +19,7 @@ export default function MessagesList() {
     getMessages()
   }, [])
   
-  if (isLoading) return(<div className='loading'>Chargement des messages</div>)
+  if (isLoading) return(<div className='loading'>Chargement des messages...</div>)
   
   return (
     <div className='messages-list'>

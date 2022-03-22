@@ -18,7 +18,7 @@ export default function AccountsList() {
     getAccounts()
   }, [])
   
-  if (isLoading) return(<div className='loading'>Chargement des utilisateurs</div>)
+  if (isLoading) return(<div className='loading'>Chargement des utilisateurs...</div>)
   
   return (
     <div className='accounts-list'>

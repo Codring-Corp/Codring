@@ -2,6 +2,9 @@
 
 .admin-component {
   height: calc(100vh - 70px);
+  .loading {
+    height: calc(100vh - 70px);
+  }
   .tabs {
     display: flex;
     border-bottom: 1px solid rgba(128, 128, 128, .2);
@@ -85,7 +88,6 @@
       flex-direction: column;
       padding: 10px 20px;
       border-radius: 7px;
-      margin: 20px 0;
       &:hover {
         background: rgba(128, 128, 128, .05);
       }
@@ -119,6 +121,36 @@
       }
     }
   }
+  .todo-list {
+    margin-top: 20px;
+    .todo-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-radius: 7px;
+      &:hover {
+        background: rgba(128, 128, 128, .05);
+      }
+    }
+  }
+  .stats-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    .stat {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 25px;
+        font-weight: 700;
+      }
+      p {
+        line-height: 0;
+      }
+    }
+  }
+  
+  
   .btns {
     display: flex;
     align-items: center;

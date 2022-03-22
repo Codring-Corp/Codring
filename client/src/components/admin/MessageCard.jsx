@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Trash from '../../assets/svg/Trash'
 
 
 export default function MessageCard(props) {
