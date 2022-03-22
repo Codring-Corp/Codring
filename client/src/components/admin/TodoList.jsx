@@ -27,7 +27,7 @@ export default function TodoList() {
         return(
           <TodoCard
             todo={todo}
-            relaodList={() => getTodo()}
+            reloadList={() => getTodo()}
             key={index}
           />
         )
