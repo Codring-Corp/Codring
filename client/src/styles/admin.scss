@@ -1,0 +1,186 @@
+@import './variables';
+
+.admin-component {
+  height: calc(100vh - 70px);
+  .loading {
+    height: calc(100vh - 70px);
+  }
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, .2);
+    p {
+      font-size: 17px;
+      font-weight: 500;
+      margin: 0 20px;
+      padding: 0 10px;
+      cursor: pointer;
+      &.active::after {
+        content: '';
+        position: relative;
+        left: -10px;
+        display: block;
+        width: calc(100% + 20px);
+        height: 4px;
+        margin-top: 5px;
+        background: $main-color;
+        border-radius: 15px 15px 0 0;
+      }
+    }
+  }
+  .tab {
+    height: calc(100% - 35.5px);
+    overflow: auto;
+  }
+  
+  .accounts-list {
+    margin-top: 20px;
+    .account-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 7px;
+      .profile-link {
+        width: calc(100% - 58px);
+        display: flex;
+        align-items: center;
+      }
+      &:hover {
+        background: rgba(128, 128, 128, .05);
+      }
+      .data {
+        width: 40%;
+        .username {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          font-size: 16px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .email {
+          font-size: 14px;
+          opacity: .8;
+        }
+        .role {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          opacity: .8;
+          svg {
+            width: 17px;
+            height: 17px;
+            margin-right: 2px;
+          }
+        }
+      }
+      .dates-and-points {
+        font-size: 13px;
+        opacity: .4;
+      }
+      
+    }
+  }
+  .messages-list {
+    margin-top: 20px;
+    .message-card {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 20px;
+      border-radius: 7px;
+      &:hover {
+        background: rgba(128, 128, 128, .05);
+      }
+      .content {
+        text-align: justify;
+      }
+      .data {
+        font-size: 14px;
+        color: rgba(0, 0, 0, .4);
+        a {
+          color: $main-color;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .bottom-part {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        .btns button {
+          padding: 3px 8px;
+          font-size: 13px;
+          opacity: .7;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .todo-list {
+    margin-top: 20px;
+    .todo-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      border-radius: 7px;
+      &:hover {
+        background: rgba(128, 128, 128, .05);
+      }
+    }
+  }
+  .stats-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    .stat {
+      display: flex;
+      flex-direction: column;
+      span {
+        font-size: 25px;
+        font-weight: 700;
+      }
+      p {
+        line-height: 0;
+      }
+    }
+  }
+  
+  
+  .btns {
+    display: flex;
+    align-items: center;
+    position: relative;
+    svg {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    .confirmation-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      p {
+        border-radius: 5px;
+        padding: 3px 8px;
+        cursor: pointer;
+        font-size: 13px;
+        user-select: none;
+        &:first-of-type {
+          background: $error-color;
+          margin-right: 10px;
+          color: white;
+        }
+        &:last-of-type {
+          background: white;
+          color: 1px solid rgba(0, 0, 0, .3);
+          border: 1px solid rgba(0, 0, 0, .3);
+        }
+      }
+    }
+  }
+}

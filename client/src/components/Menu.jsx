@@ -3,8 +3,9 @@ import { NavLink as Link, useLocation } from "react-router-dom";
 
 import css from '../styles/menu.module.css'
 
-export default function Menu() {
-    let path = useLocation().pathname
+export default function Menu(props) {
+    const path = useLocation().pathname
+    const userRole = props.user.role
 
     return (
     <div className={`menu ${css.menu}`}>
@@ -14,10 +15,12 @@ export default function Menu() {
       </div>
         
       <div className={css.links}>
-        <Link to="/admin" className={`${path === '/admin' ? css.active : undefined}`}>
-            <svg viewBox="0 0 24 24"><path d="M12 23C6.443 21.765 2 16.522 2 11V5l10-4l10 4v6c0 5.524-4.443 10.765-10 12zM4 6v5a10.58 10.58 0 0 0 8 10a10.58 10.58 0 0 0 8-10V6l-8-3z" fill="currentColor"></path><circle cx="12" cy="8.5" r="2.5" fill="currentColor"></circle><path d="M7 15a5.782 5.782 0 0 0 5 3a5.782 5.782 0 0 0 5-3c-.025-1.896-3.342-3-5-3c-1.667 0-4.975 1.104-5 3z" fill="currentColor"></path></svg>
-            Panel administateur
-            </Link>
+        { (userRole === 'moderator' || userRole === 'admin') &&
+          <Link to="/admin" className={`${path === '/admin' ? css.active : undefined}`}>
+              <svg viewBox="0 0 24 24"><path d="M12 23C6.443 21.765 2 16.522 2 11V5l10-4l10 4v6c0 5.524-4.443 10.765-10 12zM4 6v5a10.58 10.58 0 0 0 8 10a10.58 10.58 0 0 0 8-10V6l-8-3z" fill="currentColor"></path><circle cx="12" cy="8.5" r="2.5" fill="currentColor"></circle><path d="M7 15a5.782 5.782 0 0 0 5 3a5.782 5.782 0 0 0 5-3c-.025-1.896-3.342-3-5-3c-1.667 0-4.975 1.104-5 3z" fill="currentColor"></path></svg>
+              { userRole === 'moderator' ? 'Modération' : 'Administration' }
+          </Link>
+        }
         <Link to="/" className={`${path === '/' ? css.active : undefined}`}>
         <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6.75024 19.2502H17.2502C18.3548 19.2502 19.2502 18.3548 19.2502 17.2502V9.75025L12.0002 4.75024L4.75024 9.75025V17.2502C4.75024 18.3548 5.64568 19.2502 6.75024 19.2502Z"></path><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.74963 15.7493C9.74963 14.6447 10.6451 13.7493 11.7496 13.7493H12.2496C13.3542 13.7493 14.2496 14.6447 14.2496 15.7493V19.2493H9.74963V15.7493Z"></path></svg>    
             Accueil
