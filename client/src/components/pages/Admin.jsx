@@ -13,12 +13,14 @@ import '../../styles/admin.scss'
 export default function Admin(props) {
     const navigate = useNavigate()
     const isAuth = props.isAuth
+    const user = props.user
     
-    const [activeTab, setActiveTab] = useState('accounts')
+    const [activeTab, setActiveTab] = useState('messages')
     
     useEffect(() => {
         // If user isn't auth, redirect him to the login page
         if (!isAuth) navigate('/login')
+        else if (user.role === 'user') navigate('/')
     })
     
   return (

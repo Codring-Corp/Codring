@@ -25,7 +25,7 @@ export default function MessagesList() {
     <div className='messages-list'>
       {  accounts.map((message, index) => {
         return( <MessageCard message={message} key={index} /> )
-      })}
+      }).reverse()}
     </div>
   )
 }

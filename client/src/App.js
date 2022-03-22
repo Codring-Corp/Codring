@@ -53,7 +53,7 @@ function App() {
   
   return (
     <div className="App">
-        <Menu />
+        <Menu user={user} />
       <div className='headerAndComponent'>
         <Header user={user} />
         <div className='componentContainer'>
@@ -61,7 +61,7 @@ function App() {
                 <Route path="/" element={<Home user={user} isAuth={isAuth}/>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/about" element={<About isAuth={isAuth}/>} />
-                <Route path="/admin" element={<Admin isAuth={isAuth}/>} />
+                <Route path="/admin" element={<Admin isAuth={isAuth} user={user}/>} />
                 <Route path="/historic" element={<Historic isAuth={isAuth}/>} />
                 <Route path="/rewards" element={<Rewards isAuth={isAuth}/>} />
                 <Route path="/settings" element={<Settings isAuth={isAuth}/>} />

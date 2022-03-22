@@ -4,7 +4,7 @@ const accountSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
-    role: String, // admin, moderator, user
+    role: String, // par ordre décroissant -> admin, moderator, PO, scrum master, dev, user
     lastConnection: Date,
     personalTodoList: [
         {

@@ -21,7 +21,7 @@ module.exports = () => {
           Codring
         </a>
       </h1>
-      <p style="font-size: 18px;margin:0">Bienvenu chez Genely !</p>
+      <p style="font-size: 18px;margin:0">Bienvenu chez Codring !</p>
       <p style="margin-bottom:0;margin-top: 50px;">Merci d'avoir créé un compte sur notre plateforme.<br>Vous trouverez ci-dessous un bouton pour vous connecter.</p>
       <a
         href="${APP_DOMAIN}"

@@ -25,7 +25,7 @@ module.exports = async(req, res) => {
           username,
           email,
           password,
-          isAdmin: data.isAdmin ? true : false,
+          role: 'user',
           lastConnection: new Date(),
           userPoints: 0
       })

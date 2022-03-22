@@ -25,16 +25,15 @@ export default function AccountCard(props) {
     <div className='account-card'>
       <Link className='profile-link' to={`/profile/${account.username}`} target="_blank" rel="noopener noreferrer">
         <div className='data'>
-          <p className='username'>
-            { account.role === 'admin' ? <Shield /> : account.role === 'moderator' ? <Announcement /> : <User /> }
-            { account.username }
-          </p>
-          <p className='points'>{ account.userPoints } point{ account.userPoints > 1 ? 's' : '' }</p>
+          <p className='username'>{ account.username }</p>
+          <p className='email'>{ account.email }</p>
+          { getAccountRole(account.role) }
         </div>
         
-        <div className='dates'>
+        <div className='dates-and-points'>
           <p>Membre depuis le { getDate(account.createdAt) }</p>
           <p>Dernière connexion le { getDate(account.lastConnection) }</p>
+          <p>{ account.userPoints } point{ account.userPoints > 1 ? 's' : '' }</p>
         </div>
       </Link>
       
@@ -64,4 +63,11 @@ function getDate(d) {
   const month = months[date.getMonth()]
   
   return `${date.getDate()} ${month} ${date.getFullYear()}`
+}
+function getAccountRole(role) {
+  // Return the icon and the role of the account
+  
+  if (role === 'admin') return(<p className='role'><Shield /> administrateur</p>)
+  else if (role === 'moderator') return(<p className='role'><Announcement /> modérateur</p>)
+  else return(<p className='role'><User /> utilisateur</p>)
 }
