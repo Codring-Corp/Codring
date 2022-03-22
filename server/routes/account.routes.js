@@ -6,7 +6,7 @@ const authenticateToken = require('../middleware/token/authenticateToken')
 const db = require('../database/export')
 const Accounts = db.accounts
 
-const accountController = require('../controllers/accounts/export')
+const accountController = require('../controllers/accounts/export.controller')
 
 
 router.get('/', async(req, res) => {
@@ -15,5 +15,6 @@ router.get('/', async(req, res) => {
     res.status(200).send({ status: 200, accounts })
 })
 router.patch('/', authenticateToken, accountController.patch)
+router.delete('/:id', authenticateToken, accountController.delete)
 
 module.exports = router

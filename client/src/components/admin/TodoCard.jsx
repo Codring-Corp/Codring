@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Trash from '../../assets/svg/Trash'
 import Edit from '../../assets/svg/Edit'
 
+import { request } from '../../request'
+
 
 export default function TodoCard(props) {
   const todo = props.todo
@@ -12,8 +14,10 @@ export default function TodoCard(props) {
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   
   const deleteTodo = id => {
-    // Delete message by id
-    console.log('delete', id);
+    // Delete todo by id
+    request.remove(`/todo/${id}`)
+    // Reload todo list
+    props.reloadList()
   }
   
   return (

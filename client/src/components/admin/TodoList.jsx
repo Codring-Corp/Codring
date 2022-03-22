@@ -8,15 +8,15 @@ export default function TodoList() {
   const [todos, setTodos] = useState()
   
   
-  useEffect(() => {
-    const getMessages = async () => {
-      // Get all messages
-      const res = await request.get('/todo')
-      setTodos(res.todo)
-      setIsLoading(false)
-    }
-    getMessages()
-  }, [])
+  useEffect(() => { getTodo() }, [])
+  
+  const getTodo = async () => {
+    // Get all messages
+    setIsLoading(true)
+    const res = await request.get('/todo')
+    setTodos(res.todo)
+    setIsLoading(false)
+  }
   
   if (isLoading) return(<div className='loading'>Chargement des todo...</div>)
   
@@ -24,7 +24,13 @@ export default function TodoList() {
   return (
     <div className='todo-list'>
       { todos.map((todo, index) => {
-        return(<TodoCard todo={todo} key={index} />)
+        return(
+          <TodoCard
+            todo={todo}
+            relaodList={() => getTodo()}
+            key={index}
+          />
+        )
       }) }
     </div>
   )

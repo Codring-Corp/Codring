@@ -8,6 +8,8 @@ import Shield from '../../assets/svg/Shield'
 import Announcement from '../../assets/svg/Announcement'
 import User from '../../assets/svg/User'
 
+import { request } from '../../request'
+
 
 export default function AccountCard(props) {
   const account = props.account
@@ -16,9 +18,11 @@ export default function AccountCard(props) {
   const [editMode, setEditMode] = useState(false)
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
   
-  const deleteAccount = id => {
+  const deleteAccount = async id => {
     // Delete account by id
-    console.log('delete', id);
+    request.remove(`/accounts/${id}`)
+    // Reload accounts list
+    props.reloadList()
   }
   
   return (

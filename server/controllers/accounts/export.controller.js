@@ -1,4 +1,4 @@
 module.exports = {
-  create: require('./create.controller'),
+  patch: require('./patch.controller.js'),
   delete: require('./delete.controller')
 }

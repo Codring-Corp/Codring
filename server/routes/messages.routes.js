@@ -13,5 +13,6 @@ router.get('/', async(req, res) => {
   res.status(200).send({ status: 200, messages })
 })
 router.post('/', /* authenticateToken, */  messagesController.create)
+router.delete('/:id', authenticateToken, messagesController.delete)
 
 module.exports = router
