@@ -5,8 +5,10 @@ import css from '../styles/menu.module.css'
 
 export default function Menu(props) {
     const path = useLocation().pathname
-    const userRole = props.user.role
+    const user = props.user
 
+    if (!user) return(<div></div>)
+    
     return (
     <div className={`menu ${css.menu}`}>
         
@@ -15,10 +17,10 @@ export default function Menu(props) {
       </div>
         
       <div className={css.links}>
-        { (userRole === 'moderator' || userRole === 'admin') &&
+        { (user.role === 'moderator' || user.role === 'admin') &&
           <Link to="/admin" className={`${path === '/admin' ? css.active : undefined}`}>
               <svg viewBox="0 0 24 24"><path d="M12 23C6.443 21.765 2 16.522 2 11V5l10-4l10 4v6c0 5.524-4.443 10.765-10 12zM4 6v5a10.58 10.58 0 0 0 8 10a10.58 10.58 0 0 0 8-10V6l-8-3z" fill="currentColor"></path><circle cx="12" cy="8.5" r="2.5" fill="currentColor"></circle><path d="M7 15a5.782 5.782 0 0 0 5 3a5.782 5.782 0 0 0 5-3c-.025-1.896-3.342-3-5-3c-1.667 0-4.975 1.104-5 3z" fill="currentColor"></path></svg>
-              { userRole === 'moderator' ? 'Modération' : 'Administration' }
+              { user.role === 'moderator' ? 'Modération' : 'Administration' }
           </Link>
         }
         <Link to="/" className={`${path === '/' ? css.active : undefined}`}>

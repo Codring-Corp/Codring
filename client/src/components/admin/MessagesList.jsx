@@ -9,22 +9,28 @@ export default function MessagesList() {
   const [accounts, setAccounts] = useState()
   
   
-  useEffect(() => {
-    const getMessages = async () => {
-      // Get all messages
-      const res = await request.get('/messages')
-      setAccounts(res.messages)
-      setIsLoading(false)
-    }
-    getMessages()
-  }, [])
+  useEffect(() => { getMessages() }, [])
+  
+  const getMessages = async () => {
+    // Get all messages
+    setIsLoading(true)
+    const res = await request.get('/messages')
+    setAccounts(res.messages)
+    setIsLoading(false)
+  }
   
   if (isLoading) return(<div className='loading'>Chargement des messages...</div>)
   
   return (
     <div className='messages-list'>
       {  accounts.map((message, index) => {
-        return( <MessageCard message={message} key={index} /> )
+        return(
+          <MessageCard
+            message={message}
+            reloadList={() => getMessages()}
+            key={index}
+          />
+        )
       }).reverse()}
     </div>
   )

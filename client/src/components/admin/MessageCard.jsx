@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { request } from '../../request'
+
 
 export default function MessageCard(props) {
   const msg = props.message
@@ -10,7 +12,9 @@ export default function MessageCard(props) {
   
   const deleteMessage = id => {
     // Delete message by id
-    console.log('delete', id);
+    request.remove(`/messages/${id}`)
+    // Reload messages list
+    props.reloadList()
   }
   
   return (
