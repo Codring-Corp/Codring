@@ -23,7 +23,7 @@ export default function ResetPassword() {
   const onSubmit = async password => {
     setIsSubmitting(true)
     await fetch(
-      `${URL}/accounts`,
+      `${URL}/accounts?`,
       {
         method: 'PATCH',
         body: JSON.stringify(password),
@@ -91,7 +91,7 @@ export default function ResetPassword() {
           </Button>
           
           <div className='auth-error'>
-            { authError && <ErrorMsg msg={'Une erreur est survenue, merci de recliquer sur le lien du mail'} /> }
+            { authError && <ErrorMsg msg={'Une erreur est survenue, merci de réessayer'} /> }
           </div>
         </form> 
       </div>

@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function Settings(props) {
     const navigate = useNavigate()
+    
+    const token = localStorage.getItem('accessToken')
     const isAuth = props.isAuth
     
     useEffect(() => {
@@ -12,8 +14,14 @@ export default function Settings(props) {
     })
     
   return (
-    <div className={`component`}>
-      <p>Réglages</p>
+    <div className='component settings-component'>
+      <div className="reset-password-container">
+        <button className="primary-btn reset-btn">
+          <Link to={`/reset/password/${token}`}>
+            Réinitialiser mon mot de passe
+          </Link>
+        </button>
+      </div>
     </div>
   );
 }

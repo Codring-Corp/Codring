@@ -18,10 +18,10 @@ export default function ForgotPasswordForm(props) {
       
       if (res.status === 200) {
         console.log(res);
-          /* // Set access token in localStorage and redirect user
+          // Set access token in localStorage and redirect user
           localStorage.setItem('accessToken', res.accessToken)
           // Refresh the page to apply localstorage changes
-          window.location.reload(false) */
+          window.location.reload(false)
       }
       else {
           setError(res.error.input, {

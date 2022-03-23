@@ -25,6 +25,8 @@ import './styles/home.scss'
 import './styles/forms.scss'
 import './styles/buttons.scss'
 import './styles/historic.scss'
+import './styles/about.scss'
+import './styles/settings.scss'
 
 function App() {
   const token = localStorage.getItem('accessToken')
