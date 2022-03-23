@@ -10,24 +10,22 @@ import { request } from "../../request";
 export default function ForgotPasswordForm(props) {
     const { register, handleSubmit, formState: { errors }, setError } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false)
-    
-    const onSubmit = async data => {
-      setIsSubmitting(true)
-      const res = await request.post('/auth/reset/password', data)
-      setIsSubmitting(false)
-      
-      if (res.status === 200) {
-        /* console.log(res);
-          // Set access token in localStorage and redirect user
-          localStorage.setItem('accessToken', res.accessToken)
-          // Refresh the page to apply localstorage changes
-          window.location.reload(false) */
-      }
-      else {
-          setError(res.error.input, {
-              type: "manual",
-              message: res.error.msg,
-          })
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    const res = await request.post("/auth/reset/password", data);
+    setIsSubmitting(false);
+
+    if (res.status === 200) {
+      console.log(res);
+      // Set access token in localStorage and redirect user
+      localStorage.setItem("accessToken", res.accessToken);
+      // Refresh the page to apply localstorage changes
+      window.location.reload(false);
+    } else {
+      setError(res.error.input, {
+        type: "manual",
+        message: res.error.msg,
+      });
       }
     }
 
