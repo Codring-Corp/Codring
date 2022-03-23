@@ -15,11 +15,6 @@ module.exports = async(req, res) => {
     user = await Accounts.findByIdAndUpdate(req.user._id, { password: newPassword })
   }
   else {
-    if (await Accounts.findOne({ username: data.username })) {
-      // Check if the new username isn't already taken
-      return res.status(400).send({ status: 400, error: { input: 'username', msg: 'Nom d\'utilisateur déjà prit' }})
-    }
-    
     user = await Accounts.findOneAndUpdate({ email: data.email }, data)
   }
   
