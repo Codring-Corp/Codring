@@ -11,12 +11,11 @@ import MessagesList from "../historic/MessagesList";
 export default function Home(props) {
   const navigate = useNavigate();
   const isAuth = props.isAuth;
-  const user = props.user;
 
   useEffect(() => {
     // If user isn't auth, redirect him to the login page
     if (!isAuth) navigate("/login");
-  });
+  })
 
   return (
     <div className={`component homeComponent`}>

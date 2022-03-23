@@ -6,14 +6,6 @@ import ErrorMsg from "../forms/ErrorMsg";
 
 import { request } from "../../request";
 
-export default function ForgotPasswordForm(props) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-  } = useForm();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
 export default function ForgotPasswordForm(props) {
     const { register, handleSubmit, formState: { errors }, setError } = useForm();
@@ -25,11 +17,11 @@ export default function ForgotPasswordForm(props) {
       setIsSubmitting(false)
       
       if (res.status === 200) {
-        console.log(res);
+        /* console.log(res);
           // Set access token in localStorage and redirect user
           localStorage.setItem('accessToken', res.accessToken)
           // Refresh the page to apply localstorage changes
-          window.location.reload(false)
+          window.location.reload(false) */
       }
       else {
           setError(res.error.input, {
@@ -38,7 +30,6 @@ export default function ForgotPasswordForm(props) {
           })
       }
     }
-  };
 
   return (
     <div>
