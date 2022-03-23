@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
+
 import TodoList from '../admin/TodoList'
+import TodoCreate from './TodoCreate'
+
 
 export default function TodoTab() {
+  const reloadList = useRef(null)
+  
+  
   return (
     <div className='tab'>
-      <TodoList />
+      <TodoCreate reloadList={() => reloadList.current()} />
+      <TodoList reloadList={reloadList} />
     </div>
   )
 }

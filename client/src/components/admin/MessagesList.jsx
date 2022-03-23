@@ -4,18 +4,27 @@ import { request } from '../../request'
 import MessageCard from './MessageCard'
 
 
-export default function MessagesList() {
+export default function MessagesList(props) {
   const [isLoading, setIsLoading] = useState(true)
-  const [accounts, setAccounts] = useState()
+  const [messages, setMessages] = useState([])
+  const [filteredMessages, setFilteredMessages] = useState([])
+  
+  const searchInput = props.searchInput
   
   
   useEffect(() => { getMessages() }, [])
+  useEffect(() => {
+    // Search system
+    setFilteredMessages(messages.filter(messages => {
+      return (messages.body.toLowerCase().indexOf(searchInput.toLowerCase()) > -1)
+    }))
+  }, [searchInput, messages])
   
   const getMessages = async () => {
     // Get all messages
     setIsLoading(true)
     const res = await request.get('/messages')
-    setAccounts(res.messages)
+    setMessages(res.messages)
     setIsLoading(false)
   }
   
@@ -23,7 +32,7 @@ export default function MessagesList() {
   
   return (
     <div className='messages-list'>
-      {  accounts.map((message, index) => {
+      {  filteredMessages.map((message, index) => {
         return(
           <MessageCard
             message={message}

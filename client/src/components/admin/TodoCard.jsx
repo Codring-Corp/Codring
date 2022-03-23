@@ -12,10 +12,14 @@ export default function TodoCard(props) {
   
   const [editMode, setEditMode] = useState(false)
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   
-  const deleteTodo = id => {
+  
+  const deleteTodo = async id => {
     // Delete todo by id
-    request.remove(`/todo/${id}`)
+    setIsDeleting(true)
+    await request.remove(`/todo/${id}`)
+    setIsDeleting(false)
     // Reload todo list
     props.reloadList()
   }
@@ -33,8 +37,8 @@ export default function TodoCard(props) {
         </button>
         
         { showDeleteConfirmation &&
-          <div className='confirmation-btn'>
-            <p onClick={() => deleteTodo(todoId)}>Supprimer</p>
+          <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
+            <p onClick={() => deleteTodo(todoId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
             <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
           </div>
         }

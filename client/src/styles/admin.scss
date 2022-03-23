@@ -33,7 +33,6 @@
   }
   
   .accounts-list {
-    margin-top: 20px;
     .account-card {
       display: flex;
       justify-content: space-between;
@@ -82,7 +81,6 @@
     }
   }
   .messages-list {
-    margin-top: 20px;
     .message-card {
       display: flex;
       flex-direction: column;
@@ -122,7 +120,6 @@
     }
   }
   .todo-list {
-    margin-top: 20px;
     .todo-card {
       display: flex;
       justify-content: space-between;
@@ -181,6 +178,34 @@
           border: 1px solid rgba(0, 0, 0, .3);
         }
       }
+      &.is-deleting {
+        background: white;
+        p {
+          opacity: .5;
+          cursor: not-allowed;
+        }
+      }
     }
   }
+  
+  .search-input-container, .create-todo {
+    padding: 20px;
+    input {
+      width: calc(100% - 20px);
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: 4px;
+    }
+  }
+  .create-todo{
+    .loading {
+      height: auto;
+      justify-content: start;
+      margin: 5px 10px;
+    }
+    form {
+      padding: 0;
+      width: inherit;
+      box-shadow: none;
+    }
+  } 
 }

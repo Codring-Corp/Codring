@@ -20,18 +20,18 @@ export default function StatsTab() {
   
   return (
     <div className='tab stats-section'>
-      <p className='stat'>
+      <div className='stat'>
         <span>{ formatNumber(stats.totalAccounts) }</span>
         <p>utilisateurs</p>
-      </p>
-      <p className='stat'>
+      </div>
+      <div className='stat'>
         <span>{ formatNumber(stats.totalMessages) }</span>
         <p>messages</p>
-      </p>
-      <p className='stat'>
+      </div>
+      <div className='stat'>
         <span>{ formatNumber(stats.totalPoints) }</span>
         <p>points cumulés</p>
-      </p>
+      </div>
     </div>
   )
 }

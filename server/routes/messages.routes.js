@@ -12,7 +12,7 @@ router.get('/', async(req, res) => {
   const messages = await Messages.find()
   res.status(200).send({ status: 200, messages })
 })
-router.post('/', /* authenticateToken, */  messagesController.create)
+router.post('/', authenticateToken,  messagesController.create)
 router.delete('/:id', authenticateToken, messagesController.delete)
 
 module.exports = router
