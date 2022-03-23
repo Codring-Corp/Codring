@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { request } from './request';
 
 import Menu from "./components/Menu";
-import Header from './components/Header'
+import Header from "./components/Header";
 
 import Home from "./components/pages/Home";
 import Login from "./components/pages/Login";
@@ -75,7 +75,6 @@ function App() {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
-      
       </div>
     </div>
   );
