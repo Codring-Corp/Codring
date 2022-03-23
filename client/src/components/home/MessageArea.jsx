@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function MessageArea(props) {
-  const [typingCount, setTypingCount] = useState(0);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(props.message);
+  const [typingCount, setTypingCount] = useState(message.length);
 
-  function updateSpanCount(e) {
-    setTypingCount(e.target.value.length);
-  }
   function checkValidTextArea(e) {
     // Check if message is not empty
     if (typingCount > 0) {
@@ -18,6 +15,11 @@ export default function MessageArea(props) {
     }
   }
 
+  useEffect(() => {
+    props.onChange(0, message, null);
+    setTypingCount(message.length);
+  }, [message]);
+
   return (
     <div className="messageComponent">
       <textarea
@@ -25,11 +27,11 @@ export default function MessageArea(props) {
         placeholder="Ecrivez votre message à célébrer !"
         maxLength={256}
         onChange={(e) => {
-          updateSpanCount(e);
           setMessage(e.target.value);
         }}
+        value={props.message}
       ></textarea>
-      <span> {typingCount} / 256 </span>
+      <span> {props.message.length} / 256 </span>
       <button className="submitButton" onClick={(e) => checkValidTextArea(e)}>
         {" "}
         Valider mon message{" "}

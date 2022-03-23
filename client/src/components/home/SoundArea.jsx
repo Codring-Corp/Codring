@@ -12,7 +12,7 @@ import sound6 from "../../assets/audio/sound6.mp3";
 export default function SoundArea(props) {
   const [checkedItem, setCheckedItem] = useState(1);
   const [uploadedFile, setUploadedFile] = useState("");
-  const [sound, setSound] = useState(new Audio(sound1));
+  const [sound, setSound] = useState({ audio: new Audio(sound1), index: 1 });
 
   const sounds = {
     1: sound1,
@@ -42,12 +42,12 @@ export default function SoundArea(props) {
     let audio;
     if (index < 7) {
       audio = new Audio(sounds[index]);
-      setSound(audio);
+      setSound({ audio: audio, index: index });
     } else if (uploadedFile[0] && uploadedFile !== "") {
       audio = new Audio(URL.createObjectURL(uploadedFile[0]));
-      setSound(audio);
+      setSound({ audio: audio, index: index });
     } else {
-      setSound(new Audio());
+      setSound({ audio: new Audio(), index: 0 });
     }
   }
 
@@ -55,14 +55,14 @@ export default function SoundArea(props) {
     let audio;
     if (index < 7) {
       audio = new Audio(sounds[index]);
-      setSound(audio);
+      setSound({ audio: audio, index: index });
       getDuration(audio);
     } else if (uploadedFile[0] && uploadedFile !== "") {
       audio = new Audio(URL.createObjectURL(uploadedFile[0]));
-      setSound(audio);
+      setSound({ audio: audio, index: index });
       getDuration(audio);
     } else {
-      setSound(new Audio());
+      setSound({ audio: new Audio(), index: 0 });
     }
   }
 
@@ -91,7 +91,7 @@ export default function SoundArea(props) {
     <div className="soundSelectionContainer">
       <div
         className="leftArrowContainer"
-        onClick={() => props.onChange(0, "", null)}
+        onClick={() => props.onChange(0, null, null)}
       ></div>
 
       <div className="radioInputContainer">{radioComponentItems}</div>
@@ -118,7 +118,7 @@ export default function SoundArea(props) {
       <button
         className="fontStyle validSoundBtn"
         tabIndex="-1"
-        onClick={() => props.onChange(2, "", sound)}
+        onClick={() => props.onChange(2, null, sound)}
       >
         Choisir cette alerte
       </button>
