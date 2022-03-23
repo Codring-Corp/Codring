@@ -3,14 +3,26 @@ import { request } from '../../request'
 
 import AccountCard from './AccountCard'
 
-export default function AccountsList() {
+
+export default function AccountsList(props) {
   const [isLoading, setIsLoading] = useState(true)
-  const [accounts, setAccounts] = useState()
+  const [accounts, setAccounts] = useState([])
+  const [filteredAccounts, setFilteredAccounts] = useState([])
   
+  const searchInput = props.searchInput
   
-  useEffect(() => { getAccounts() }, [])
+  useEffect(() => getAccounts(), [])
+  useEffect(() => {
+    // Search system
+    setFilteredAccounts(accounts.filter(account => {
+      return (
+        account.username.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 ||
+        account.email.toLowerCase().includes(searchInput.toLowerCase())
+      )
+    }))
+  }, [searchInput, accounts])
   
-  const getAccounts = async () => {
+  const getAccounts = async() => {
     // Get all accounts
     setIsLoading(true)
     const res = await request.get('/accounts')
@@ -22,7 +34,7 @@ export default function AccountsList() {
   
   return (
     <div className='accounts-list'>
-      {  accounts.map((account, index) => {
+      {  filteredAccounts.map((account, index) => {
         return(
           <AccountCard
             account={account}

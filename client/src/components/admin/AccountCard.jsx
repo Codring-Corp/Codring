@@ -17,10 +17,13 @@ export default function AccountCard(props) {
   
   const [editMode, setEditMode] = useState(false)
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   
   const deleteAccount = async id => {
     // Delete account by id
-    request.remove(`/accounts/${id}`)
+    setIsDeleting(true)
+    await request.remove(`/accounts/${id}`)
+    setIsDeleting(false)
     // Reload accounts list
     props.reloadList()
   }
@@ -50,8 +53,8 @@ export default function AccountCard(props) {
         </button>
         
         { showDeleteConfirmation &&
-          <div className='confirmation-btn'>
-            <p onClick={() => deleteAccount(accountId)}>Supprimer</p>
+          <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
+            <p onClick={() => deleteAccount(accountId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
             <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
           </div>
         }

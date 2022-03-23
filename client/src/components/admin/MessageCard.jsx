@@ -9,10 +9,13 @@ export default function MessageCard(props) {
   const msgId = msg._id
   
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   
-  const deleteMessage = id => {
+  const deleteMessage = async id => {
     // Delete message by id
-    request.remove(`/messages/${id}`)
+    setIsDeleting(true)
+    await request.remove(`/messages/${id}`)
+    setIsDeleting(false)
     // Reload messages list
     props.reloadList()
   }
@@ -29,8 +32,8 @@ export default function MessageCard(props) {
         <div className='btns'>
           {
             showDeleteConfirmation ?
-            <div className='confirmation-btn'>
-              <p onClick={() => deleteMessage(msgId)}>Supprimer</p>
+            <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
+              <p onClick={() => deleteMessage(msgId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
               <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
             </div>
             :

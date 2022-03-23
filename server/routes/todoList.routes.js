@@ -12,6 +12,7 @@ router.get('/', async(req, res) => {
   const todo = await Todo.find()
   res.status(200).send({ status: 200, todo })
 })
+router.post('/', authenticateToken, todoController.create)
 router.delete('/:id', authenticateToken, todoController.delete)
 
 module.exports = router

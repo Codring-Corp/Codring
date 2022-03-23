@@ -3,7 +3,7 @@ import TodoCard from '../admin/TodoCard'
 import { request } from '../../request'
 
 
-export default function TodoList() {
+export default function TodoList(props) {
   const [isLoading, setIsLoading] = useState(true)
   const [todos, setTodos] = useState()
   
@@ -17,6 +17,11 @@ export default function TodoList() {
     setTodos(res.todo)
     setIsLoading(false)
   }
+  
+  // Reload todo list when a todo is created
+  // Function triggered by parent component
+  props.reloadList.current = () => getTodo()
+  
   
   if (isLoading) return(<div className='loading'>Chargement des todo...</div>)
   

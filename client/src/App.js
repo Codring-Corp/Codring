@@ -17,6 +17,7 @@ import TodoList from "./components/pages/TodoList";
 import NotFound from "./components/pages/NotFound";
 import ResetPassword from "./components/pages/ResetPassword";
 
+import './styles/reset.scss'
 import './styles/colors.css'
 import './styles/app.scss'
 import './styles/loading.scss'
