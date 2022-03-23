@@ -1,24 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-import { request } from '../../request'
 
 
 export default function MessageCard(props) {
-  const msg = props.message
-  const msgId = msg._id
-  
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
-  const [isDeleting, setIsDeleting] = useState(false)
-  
-  const deleteMessage = async id => {
-    // Delete message by id
-    setIsDeleting(true)
-    await request.remove(`/messages/${id}`)
-    setIsDeleting(false)
-    // Reload messages list
-    props.reloadList()
-  }
+  const msg = props.msg
   
   return (
     <div className='message-card'>
@@ -26,27 +11,12 @@ export default function MessageCard(props) {
       
       <div className='bottom-part'>
         <p className='data'>
-          <Link to={`/profile/${msg.author}`} target="_blank" rel="noopener noreferrer">{ msg.author }</Link> - il y a { getDiffTime(msg.createdAt) }
+          <Link to={`/profile/${msg.author}`}>{ msg.author }</Link> - il y a { getDiffTime(msg.createdAt) }
         </p>
-            
-        <div className='btns'>
-          {
-            showDeleteConfirmation ?
-            <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
-              <p onClick={() => deleteMessage(msgId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
-              <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
-            </div>
-            :
-            <button onClick={() => setShowDeleteConfirmation(true)}>
-              Supprimer le message
-            </button>
-          }
         </div>
       </div>
-    </div>
   )
 }
-
 function getDiffTime(s) {
   // Return a good formated date
   const startDate = new Date(s)

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import MessagesList from "../historic/MessagesList";
+
 
 export default function Historic(props) {
     const navigate = useNavigate()
@@ -12,8 +14,8 @@ export default function Historic(props) {
     })
     
   return (
-    <div className={`component`}>
-      <p>Historique</p>
+    <div className='component historic-component'>
+      <MessagesList />
     </div>
   );
 }
