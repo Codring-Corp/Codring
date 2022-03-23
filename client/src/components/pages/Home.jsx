@@ -6,6 +6,7 @@ import CenterComponent from "../home/CenterComponent";
 import "../../styles/home.scss";
 
 import ClaimRewards from "../home/ClaimRewards";
+import MessagesList from "../historic/MessagesList";
 
 export default function Home(props) {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function Home(props) {
       <Link to="rewards">
         <ClaimRewards />
       </Link>
+      <MessagesList />
     </div>
   );
 }
