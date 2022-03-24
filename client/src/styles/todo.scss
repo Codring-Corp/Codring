@@ -1,0 +1,104 @@
+@import './variables';
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+
+    .task_list{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        width: 45%;
+    }
+    .basic_task{
+        height: 100%;
+    }
+    .addTaskContainer {
+        display: flex;
+        margin: 0 51px 20px;
+    }
+    .addTaskContainer input{
+        padding: 4px 8px;
+        border: 2px solid rgb(102, 0, 204);
+        border-radius: 5px;
+        outline: none;
+        width: 80%;
+    }
+    .addTaskContainer img{
+        height: 31px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+    /* TODOLIST TITLE */
+    .todoListTitleContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 3vh 0;
+    }
+    .todoListTitle p {
+        font-size: 25px;
+        font-weight: bold;
+        margin-left: 6px;
+        line-height: 25px;
+    }
+    .todoListTitle {
+        display: flex;
+        align-items: center;
+    }
+    .progressTaskCircleContainer {
+        width: 25px;
+        padding: 0 10px;
+        display: flex;
+    }
+    .completeTaskContainer {
+        width: 40px;
+        height: 35px;
+        cursor: pointer;
+    }
+    .progressTaskCircleContainer {
+        position: relative;
+        height: 25px;
+    }
+    .progressTaskCircleContainer circle {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        fill: none;
+        stroke: rgb(102, 0, 204);
+        stroke-width: 5;
+        transform: translate(2px, 3px);
+        stroke-dasharray: 57;
+        stroke-dashoffset: 57;
+    }
+    .progressTaskCircleContainer .progressCircle1 {
+        stroke-dashoffset: 0;
+        stroke: #cecece;
+    }
+    .progressTaskCircleContainer .progressCircle2 {
+        stroke-dashoffset: 57;
+        stroke: rgb(102, 0, 204);
+        transition: all .5s;
+    }
+    .taskDoneTitle {
+        font-weight: 600;
+        font-size: 14px;
+        opacity: .5;
+        margin-left: 51px;
+    }
+    /*TASKS*/
+    .task_container{
+        display: flex;
+        justify-content: center;
+    }
+    .task{
+        display: flex;
+        justify-content: space-between;
+        width: 88%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .task img{
+        height: 15px;
+        cursor: pointer;
+    }
+}

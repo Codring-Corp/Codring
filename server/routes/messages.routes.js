@@ -19,10 +19,10 @@ router.get('/sse', async(req, res) => {
   res.setHeader('Content-Type', 'text/event-stream')
   
   let startTime = new Date()
-  send(res, startTime)
+  checkMsgLoop(res, startTime)
 })
 
-async function send(res, startTime) {
+async function checkMsgLoop(res, startTime) {
   // Get the diff number of messages between the start of the request and now
   const messages = await Messages.find({ createdAt: { $gte: startTime }})
   
@@ -34,7 +34,7 @@ async function send(res, startTime) {
   }
   
   setTimeout(() => {
-    send(res, startTime)
+    checkMsgLoop(res, startTime)
   }, 3000);
 }
 
