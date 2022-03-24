@@ -6,15 +6,10 @@ import ErrorMsg from "../forms/ErrorMsg";
 
 import { request } from "../../request";
 
-export default function ForgotPasswordForm(props) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setError,
-  } = useForm();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
+export default function ForgotPasswordForm(props) {
+    const { register, handleSubmit, formState: { errors }, setError } = useForm();
+    const [isSubmitting, setIsSubmitting] = useState(false)
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     const res = await request.post("/auth/reset/password", data);
@@ -31,8 +26,8 @@ export default function ForgotPasswordForm(props) {
         type: "manual",
         message: res.error.msg,
       });
+      }
     }
-  };
 
   return (
     <div>

@@ -13,11 +13,10 @@ module.exports = async(req, res) => {
     // If it's a password update, hash the new password before update
     const newPassword = bcrypt.hashSync(req.body.password, saltRounds)
     user = await Accounts.findByIdAndUpdate(req.user._id, { password: newPassword })
-  } else {
-    user = await Accounts.findByIdAndUpdate(req.user._id, data)
+  }
+  else {
+    user = await Accounts.findOneAndUpdate({ email: data.email }, data)
   }
   
-  user.save(() => {
-    res.status(200).send({ status: 200, msg: 'Modification effectuée'})
-  })
+  user.save(() => res.status(200).send({ status: 200, msg: 'Account updated'}))
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink as Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import css from "../styles/menu.module.css";
 
@@ -12,7 +12,7 @@ export default function Menu(props) {
   return (
     <div className={`menu ${css.menu}`}>
       <div className={css.title}>
-        <h2>Cod'Ring</h2>
+        <h2><Link to={'/'}>Cod'Ring</Link></h2>
       </div>
 
       <div className={css.links}>

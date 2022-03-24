@@ -4,6 +4,7 @@ import Trash from '../../assets/svg/Trash'
 import Edit from '../../assets/svg/Edit'
 
 import { request } from '../../request'
+import TodoModif from './TodoModif'
 
 
 export default function TodoCard(props) {
@@ -26,23 +27,36 @@ export default function TodoCard(props) {
   
   return (
     <div className='todo-card'>
-      <p>{ todo.task }</p>
-      
-      <div className='btns'>
-        <button onClick={() => setEditMode(true)}>
-          <Edit />
-        </button>
-        <button onClick={() => setShowDeleteConfirmation(true)}>
-          <Trash />
-        </button>
+      <div className='todo-data'>
+        <p>{ todo.task }</p>
         
-        { showDeleteConfirmation &&
-          <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
-            <p onClick={() => deleteTodo(todoId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
-            <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
-          </div>
-        }
+        <div className='btns'>
+          <button onClick={() => setEditMode(!editMode)}>
+            <Edit />
+          </button>
+          <button onClick={() => setShowDeleteConfirmation(true)}>
+            <Trash />
+          </button>
+          
+          { showDeleteConfirmation &&
+            <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
+              <p onClick={() => deleteTodo(todoId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
+              <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
+            </div>
+          }
+        </div>
       </div>
+      
+      {
+        editMode &&
+        <TodoModif
+          task={todo.task}
+          id={todo._id}
+          hideModifForm={() => setEditMode(false)}
+          reloadList= {() => props.reloadList()}
+        />
+      }
+      
     </div>
   )
 }

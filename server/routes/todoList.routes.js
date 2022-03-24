@@ -14,5 +14,6 @@ router.get('/', async(req, res) => {
 })
 router.post('/', authenticateToken, todoController.create)
 router.delete('/:id', authenticateToken, todoController.delete)
+router.patch('/', authenticateToken, todoController.patch)
 
 module.exports = router

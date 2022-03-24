@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 
 import Trash from '../../assets/svg/Trash'
 import Edit from '../../assets/svg/Edit'
-
 import Shield from '../../assets/svg/Shield'
 import Announcement from '../../assets/svg/Announcement'
 import User from '../../assets/svg/User'
+
+import AccountModif from './AccountModif'
 
 import { request } from '../../request'
 
@@ -30,35 +31,46 @@ export default function AccountCard(props) {
   
   return (
     <div className='account-card'>
-      <Link className='profile-link' to={`/profile/${account.username}`} target="_blank" rel="noopener noreferrer">
-        <div className='data'>
-          <p className='username'>{ account.username }</p>
-          <p className='email'>{ account.email }</p>
-          { getAccountRole(account.role) }
-        </div>
-        
-        <div className='dates-and-points'>
-          <p>Membre depuis le { getDate(account.createdAt) }</p>
-          <p>Dernière connexion le { getDate(account.lastConnection) }</p>
-          <p>{ account.userPoints } point{ account.userPoints > 1 ? 's' : '' }</p>
-        </div>
-      </Link>
-      
-      <div className='btns'>
-        <button onClick={() => setEditMode(true)}>
-          <Edit />
-        </button>
-        <button onClick={() => setShowDeleteConfirmation(true)}>
-          <Trash />
-        </button>
-        
-        { showDeleteConfirmation &&
-          <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
-            <p onClick={() => deleteAccount(accountId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
-            <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
+      <div className='account-data'>
+        <Link className='profile-link' to={`/profile/${account.username}`} target="_blank" rel="noopener noreferrer">
+          <div className='data'>
+            <p className='username'>{ account.username }</p>
+            <p className='email'>{ account.email }</p>
+            { getAccountRole(account.role) }
           </div>
-        }
+          
+          <div className='dates-and-points'>
+            <p>Membre depuis le { getDate(account.createdAt) }</p>
+            <p>Dernière connexion le { getDate(account.lastConnection) }</p>
+            <p>{ account.userPoints } point{ account.userPoints > 1 ? 's' : '' }</p>
+          </div>
+        </Link>
+        
+        <div className='btns'>
+          <button onClick={() => setEditMode(!editMode)}>
+            <Edit />
+          </button>
+          <button onClick={() => setShowDeleteConfirmation(true)}>
+            <Trash />
+          </button>
+          
+          { showDeleteConfirmation &&
+            <div className={`confirmation-btn ${isDeleting ? 'is-deleting' : ''}`}>
+              <p onClick={() => deleteAccount(accountId)}>{ isDeleting ? 'Suppression...' : 'Supprimer' }</p>
+              <p onClick={() => setShowDeleteConfirmation(false)}>Annuler</p>
+            </div>
+          }
+        </div>
       </div>
+      
+      {
+        editMode &&
+        <AccountModif
+          account={account}
+          hideModifForm={() => setEditMode(false)}
+          reloadList= {() => props.reloadList()}
+        />
+      }
     </div>
   )
 }

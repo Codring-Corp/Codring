@@ -8,6 +8,8 @@ export default function MessagesList() {
   const [messages, setMessages] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   
+  const backendUrl = process.env.REACT_APP_BACKEND_URL
+  
   useEffect(() => {
     const getMessages = async () => {
       // Get all messages
@@ -18,6 +20,19 @@ export default function MessagesList() {
     }
     getMessages()
   }, [])
+  
+  useEffect(() => {
+    // Set a server sent events to auto refresh messages list when a new message is created in DB
+    const sse = new EventSource(`${backendUrl}/messages/sse`)
+
+    sse.addEventListener('message', (e) => {
+      // Update the messages list with the new messages to display them
+      const newMessages = JSON.parse(e.data);
+      newMessages.map(msg => setMessages(prevData => [...prevData, msg]))
+    })
+
+    return () => sse.close()
+  }, []);
   
   if (isLoading) return(<div className='loading'>Chargement de l'historique messages...</div>)
   
