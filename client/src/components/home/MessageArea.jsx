@@ -18,7 +18,7 @@ export default function MessageArea(props) {
   useEffect(() => {
     props.onChange(0, message, null);
     setTypingCount(message.length);
-  }, [message, props]);
+  }, [message]);
 
   return (
     <div className="messageComponent">
