@@ -11,6 +11,9 @@
     height: calc(100vh - 70px);
     overflow-y: auto;
     overflow-x: hidden;
+    .content {
+      overflow-wrap: break-word;
+    }
   }
   .centerComponent {
     display: flex;
