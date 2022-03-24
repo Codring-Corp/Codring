@@ -8,7 +8,6 @@ export default function MessageArea(props) {
     // Check if message is not empty
     if (typingCount > 0) {
       props.onChange(1, message, null);
-      e.preventDefault();
       // .style.transform = "translateX(-500px)";
     } else {
       alert("Ton message est vide");
@@ -18,7 +17,7 @@ export default function MessageArea(props) {
   useEffect(() => {
     props.onChange(0, message, null);
     setTypingCount(message.length);
-  }, [message, props]);
+  }, [message]);
 
   return (
     <div className="messageComponent">
