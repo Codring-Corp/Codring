@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import TodoListDisplay from '../todo/TodoListDisplay'
+
 import '../../styles/todo.scss'
 
 import add from "../../assets/images/add.png"
@@ -81,7 +83,7 @@ export default function TodoList(props) {
               <p>Les tâches du bon développeur agile</p>
             </div>
           </div>
-
+          <TodoListDisplay/>
         </div>        
       </div>
     </div>
