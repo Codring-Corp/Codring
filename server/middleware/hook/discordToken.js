@@ -1,5 +1,5 @@
 const { Webhook } = require('discord-webhook-node');
-const hook = new Webhook("https://discord.com/api/webhooks/955755244279722026/CtDq-01donht2inV_9SgiONtibIOhC7Wc1C2IqZmxu_1fDxDuYvZLwBOYWjGYGQCJswT");
+const hook = new Webhook(process.env.DISCORD_URI);
 
 const embed = new MessageBuilder()
 .setTitle('My title here')
