@@ -9,7 +9,6 @@ export default function MessageArea(props) {
     if (typingCount > 0) {
       props.onChange(1, message, null);
       e.preventDefault();
-      // .style.transform = "translateX(-500px)";
     } else {
       alert("Ton message est vide");
     }
