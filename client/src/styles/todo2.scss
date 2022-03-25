@@ -5,8 +5,17 @@
     justify-content: center;
     
     .todo-card{
+        display: flex;
         width: 80%;
         margin-top: 10px;
         margin-bottom: 20px;
-    }
+        cursor: pointer;
+
+        img{
+            height: 20px;
+            margin-right: 40px;
+        }
+    }   .cont2{
+            text-decoration:line-through;
+        }
 }

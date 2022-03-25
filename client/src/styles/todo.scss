@@ -96,9 +96,16 @@
         width: 88%;
         margin-top: 10px;
         margin-bottom: 20px;
-    }
-    .task img{
-        height: 15px;
-        cursor: pointer;
+
+        img{
+            height: 15px;
+            cursor: pointer;
+        }
+        .cont{
+            text-decoration:line-through;
+        }
+        .singleTask{
+            cursor: pointer;
+        }
     }
 }

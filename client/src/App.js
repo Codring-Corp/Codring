@@ -27,6 +27,7 @@ import './styles/buttons.scss'
 import './styles/historic.scss'
 import './styles/about.scss'
 import './styles/settings.scss'
+import './styles/todo.scss'
 import './styles/todo2.scss'
 
 function App() {

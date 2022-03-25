@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import TodoListDisplay from '../todo/TodoListDisplay'
 
-import '../../styles/todo.scss'
+import '../../styles/todo2.scss'
 
 import add from "../../assets/images/add.png"
 import close from "../../assets/images/close.png"
-
+import uncheck from "../../assets/images/uncheck.png"
+import check from "../../assets/images/check.png"
 
 
 export default function TodoList(props) {
@@ -16,6 +17,9 @@ export default function TodoList(props) {
 
     const [addTask, setAddTask] = useState([])
     const [inputValue, setInputValue] = useState("")
+    const [style, setStyle] = React.useState(false)
+    const [imageCheck, setImageCheck] = React.useState(false)
+
 
     console.log(addTask)
     const handleInputChange = event=> {
@@ -31,6 +35,10 @@ export default function TodoList(props) {
       setAddTask(addTask => [...addTask, inputValue])
       setInputValue("")
 
+    }
+
+    const toggleClass = ()=>{
+      setStyle(!style)
     }
     
     useEffect(() => {
@@ -63,8 +71,9 @@ export default function TodoList(props) {
           <div className='messages-list'>
             {  addTask.map((task, index) => {
               return( <div key={index} className="task_container"> 
-                        <div className="task">
-                          <p >{task}</p>
+                        <div className="task" onClick={() => setImageCheck(prevMode => !prevMode)}>
+                          <img src={imageCheck ? uncheck : check}  alt="" />
+                          <p className={`${style ? 'cont': null} singleTask`} onClick={toggleClass}>{task}</p>
                           <img src={close} onClick={()=>deleteTask(index, addTask)}></img>
                         </div>
                       </div>)
