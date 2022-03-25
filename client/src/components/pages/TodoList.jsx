@@ -72,7 +72,7 @@ export default function TodoList(props) {
             {  addTask.map((task, index) => {
               return( <div key={index} className="task_container"> 
                         <div className="task" onClick={() => setImageCheck(prevMode => !prevMode)}>
-                          <img src={imageCheck ? uncheck : check}  alt="" />
+                          <img src={imageCheck ? check : uncheck}  alt="" />
                           <p className={`${style ? 'cont': null} singleTask`} onClick={toggleClass}>{task}</p>
                           <img src={close} onClick={()=>deleteTask(index, addTask)}></img>
                         </div>
