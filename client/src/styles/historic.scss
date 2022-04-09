@@ -1,7 +1,6 @@
 @import "./variables";
 
-.historic-component,
-.homeComponent {
+.historic-component, .homeComponent, .noticeboard-component {
   .loading {
     height: calc(100vh - 70px);
   }

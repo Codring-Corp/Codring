@@ -15,6 +15,7 @@ import Historic from "./components/pages/Historic";
 import Settings from "./components/pages/Settings";
 import TodoList from "./components/pages/TodoList";
 import NotFound from "./components/pages/NotFound";
+import NoticeBoard from "./components/pages/NoticeBoard";
 import ResetPassword from "./components/pages/ResetPassword";
 
 import './styles/reset.scss'
@@ -29,6 +30,7 @@ import './styles/about.scss'
 import './styles/settings.scss'
 import './styles/todo.scss'
 import './styles/todo2.scss'
+import './styles/noticeboard.scss'
 
 function App() {
   const token = localStorage.getItem('accessToken')
@@ -72,6 +74,7 @@ function App() {
                 <Route path="/rewards" element={<Rewards isAuth={isAuth}/>} />
                 <Route path="/settings" element={<Settings isAuth={isAuth}/>} />
                 <Route path="/todo" element={<TodoList isAuth={isAuth}/>} />
+                <Route path="/noticeboard" element={<NoticeBoard />} />
                 <Route path="/profile/:userId" element={<Profil isAuth={isAuth}/>} />
                 <Route path="/reset/password/:token" element={<ResetPassword />} />
                 <Route path="*" element={<NotFound />} />
