@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import TodoCard from '../admin/TodoCard'
-import { request } from '../../request'
+import TodoCard from './TodoCard'
+import { request } from '../../../request'
 
 
 export default function TodoList(props) {

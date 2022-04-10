@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { request } from '../../request'
+import { request } from '../../../request'
 
 
 export default function MessageCard(props) {

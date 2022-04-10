@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import MessagesList from './MessagesList'
-import SearchInput from './SearchInput'
+import SearchInput from '../SearchInput'
 
 
 export default function MessagesTab() {

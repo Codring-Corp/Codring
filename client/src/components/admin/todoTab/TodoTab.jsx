@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-import TodoList from '../admin/TodoList'
+import TodoList from './TodoList'
 import TodoCreate from './TodoCreate'
 
 

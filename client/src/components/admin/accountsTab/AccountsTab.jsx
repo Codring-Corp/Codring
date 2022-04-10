@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import AccountsList from './AccountsList'
-import SearchInput from './SearchInput'
+import SearchInput from '../SearchInput'
 
 
 export default function AccountsTab() {

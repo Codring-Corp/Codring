@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import ErrorMsg from '../forms/ErrorMsg'
-import Button from '../forms/Button'
+import ErrorMsg from '../../forms/ErrorMsg'
+import Button from '../../forms/Button'
 
-import { request } from '../../request'
+import { request } from '../../../request'
 
 
 export default function AccountModif(props) {

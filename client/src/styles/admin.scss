@@ -123,8 +123,8 @@
       }
     }
   }
-  .todo-list {
-    .todo-card {
+  .todo-list, .admin-msg-list {
+    .todo-card, .admin-msg-card {
       .todo-data {
         display: flex;
         justify-content: space-between;
@@ -240,7 +240,6 @@
     }
     .confirmation-btn {
       position: absolute;
-      top: 0;
       right: 0;
       display: flex;
       p {
@@ -270,7 +269,7 @@
     }
   }
   
-  .search-input-container, .create-todo {
+  .search-input-container, .create-todo, .create-admin-msg {
     padding: 20px;
     input {
       width: calc(100% - 20px);
@@ -278,7 +277,7 @@
       border-radius: 4px;
     }
   }
-  .create-todo{
+  .create-todo, .create-admin-msg {
     .loading {
       height: auto;
       justify-content: start;

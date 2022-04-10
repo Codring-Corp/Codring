@@ -31,6 +31,13 @@ export default function Tabs(props) {
       </p>
       
       <p
+        className={activeTab === 'adminMsg' ? 'active' : ''}
+        onClick={() => props.setActiveTab('adminMsg')}
+      >
+        Messages admin
+      </p>
+      
+      <p
         className={activeTab === 'stats' ? 'active' : ''}
         onClick={() => props.setActiveTab('stats')}
       >

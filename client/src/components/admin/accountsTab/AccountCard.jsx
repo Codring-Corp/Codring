@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import Trash from '../../assets/svg/Trash'
-import Edit from '../../assets/svg/Edit'
-import Shield from '../../assets/svg/Shield'
-import Announcement from '../../assets/svg/Announcement'
-import User from '../../assets/svg/User'
+import Trash from '../../../assets/svg/Trash'
+import Edit from '../../../assets/svg/Edit'
+import Shield from '../../../assets/svg/Shield'
+import Announcement from '../../../assets/svg/Announcement'
+import User from '../../../assets/svg/User'
 
 import AccountModif from './AccountModif'
 
-import { request } from '../../request'
+import { request } from '../../../request'
 
 
 export default function AccountCard(props) {
