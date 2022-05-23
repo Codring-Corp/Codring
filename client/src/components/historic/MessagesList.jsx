@@ -4,7 +4,7 @@ import MessageCard from './MessageCard'
 import { request } from '../../request'
 
 
-export default function MessagesList() {
+export default function MessagesList(props) {
   const [messages, setMessages] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   
@@ -29,6 +29,8 @@ export default function MessagesList() {
       // Update the messages list with the new messages to display them
       const newMessages = JSON.parse(e.data);
       newMessages.map(msg => setMessages(prevData => [...prevData, msg]))
+      // Send the new messages to the parent to display them in an alert
+      props.newMessages(newMessages)
     })
 
     return () => sse.close()
