@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
+import GifContainer from "./GifContainer";
+import Cross from "../../assets/svg/Cross";
+
 
 export default function MessageArea(props) {
   const [message, setMessage] = useState(props.message);
   const [typingCount, setTypingCount] = useState(message.length);
+  const [showGifContainer, setShowGifContainer] = useState(false)
+  const [selectedGif, setSelectedGif] = useState()
 
   function checkValidTextArea(e) {
     // Check if message is not empty
@@ -19,6 +24,8 @@ export default function MessageArea(props) {
     setTypingCount(message.length);
   }, [message]);
 
+  console.log(selectedGif);
+  
   return (
     <div className="messageComponent">
       <textarea
@@ -30,11 +37,25 @@ export default function MessageArea(props) {
         }}
         value={props.message}
       ></textarea>
-      <span> {props.message.length} / 256 </span>
+      
+      { selectedGif && 
+        <div className="gif-preview">
+          <p>GIF</p>
+          <p>{ selectedGif.title }</p>
+        </div>
+      }
+      
+      <div className="bottom-span">
+        <span className="gif" onClick={() => setShowGifContainer(true)}>GIF</span>
+        <span> {props.message.length} / 256 </span>
+      </div>
+      
       <button className="submitButton" onClick={(e) => checkValidTextArea(e)}>
         {" "}
         Valider mon message{" "}
       </button>
+      
+      { showGifContainer && <GifContainer selectedGif={gif => {setSelectedGif(gif);setShowGifContainer(false)}} hideContainer={() => setShowGifContainer(false)} /> }
     </div>
   );
 }
