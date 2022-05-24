@@ -4,6 +4,7 @@ import Shield from "../../assets/svg/Shield";
 import User from "../../assets/svg/User";
 import Profil from "../../assets/svg/Profil";
 import MessageList from "./MessageList";
+import AnimatedNumber from "react-animated-number";
 
 export default function ProfileMainInfo(props) {
   const account = props.account;
@@ -11,6 +12,7 @@ export default function ProfileMainInfo(props) {
   const loadedMessages = (messages) => {
     setMessageCount(messages.length);
   };
+
   return (
     <div className="header-main-profile">
       <div className="image-container">
@@ -26,15 +28,28 @@ export default function ProfileMainInfo(props) {
         Compte crée le {getDate(account.createdAt)}
       </p>
       <div className="body-main-profile">
+        <div className="background-grey-blur"></div>
         <div className="messages-list-container">
-          <p className="messages-count">{messageCount} Messages</p>
+          <div className="messages-count">
+            <AnimatedNumber
+              value={messageCount}
+              formatValue={ (n) => n.toFixed(0) }
+              duration={1000}
+            /> messages
+          </div>
           <MessageList
             username={account.username}
-            loadedMessages={loadedMessages}
+            loadedMessages={ loadedMessages }
           />
         </div>
-
-        <p className="point-profile">{account.userPoints} points</p>
+        <p className="point-profile">
+          <AnimatedNumber
+              initialValue={0}
+              value={account.userPoints}
+              formatValue={ (n) => n.toFixed(0) }
+              duration={1000}
+          /> points
+        </p>
       </div>
     </div>
   );
