@@ -4,10 +4,22 @@ import { Link } from 'react-router-dom'
 
 export default function MessageCard(props) {
   const msg = props.msg
+  console.log(msg);
   
   return (
     <div className='message-card'>
       <p className='content'>{ msg.body }</p>
+      { msg.gif &&
+        <div className='gif'>
+          <iframe
+            src={msg.gif.url}
+            title={msg.gif.title}
+            frameBorder='0'
+            width={msg.gif.width}
+            height={msg.gif.height}
+          />
+        </div>
+      }
       
       <div className='bottom-part'>
         <p className='data'>

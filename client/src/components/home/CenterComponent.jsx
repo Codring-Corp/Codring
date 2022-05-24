@@ -6,12 +6,16 @@ import SoundArea from "./SoundArea";
 export default function CenterComponent(props) {
   const [page, setPage] = useState(0);
   const [message, setMessage] = useState("");
+  const [gif, setGif] = useState()
   const [audio, setAudio] = useState(null);
 
-  function slideTo(newValue, msg, sound) {
+  function slideTo(newValue, msg, gif, sound) {
     setPage(newValue);
     if (msg !== null) {
       setMessage(msg);
+    }
+    if (gif !== null) {
+      setGif(gif)
     }
     if (sound !== null) {
       setAudio(sound);
@@ -26,6 +30,7 @@ export default function CenterComponent(props) {
         <SendMessage
           onChange={slideTo}
           message={message}
+          gif={gif}
           audio={audio}
           user={props.user}
         />

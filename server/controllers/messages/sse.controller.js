@@ -11,17 +11,13 @@ module.exports = async(req, res) => {
 
 async function checkMsgLoop(res, startTime) {
   // Get the diff number of messages between the start of the request and now
-  const messages = await Messages.find({ createdAt: { $gte: startTime } });
-
+  const messages = await Messages.find({ createdAt: { $gte: startTime } })
   
   if (messages.length > 0) {
     const data = messages
     res.write("data: " + JSON.stringify(data) + "\n\n");
     startTime = new Date()
-    
   }
 
-  setTimeout(() => {
-    checkMsgLoop(res, startTime);
-  }, 3000);
+  setTimeout(() => checkMsgLoop(res, startTime), 3000)
 }

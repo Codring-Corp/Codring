@@ -8,6 +8,7 @@ module.exports = (req, res) => {
     author: message.author,
     authorId: message.authorId,
     body: message.body,
+    gif: message.gif,
     alert: message.alert
   })
 

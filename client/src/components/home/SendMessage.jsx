@@ -15,6 +15,12 @@ export default function SendMessage(props) {
       author: props.user.username,
       authorId: props.user._id,
       body: props.message,
+      gif: {
+        title: props.gif?.title,
+        url: props.gif?.embed_url,
+        width: props.gif?.images.fixed_width.width,
+        height: props.gif?.images.fixed_width.height
+      },
       alert: props.audio.index,
     };
     setSendingMessage(true);
@@ -50,7 +56,7 @@ export default function SendMessage(props) {
   function playMessage(toSpeak, event) {
     synth.speak(toSpeak);
     toSpeak.onend = function () {
-      props.onChange(0, "", null);
+      props.onChange(0, "", null, null);
       event.target.classList.remove("animate");
       event.target.classList.remove("unclickable");
       setSendingMessage(false);
@@ -61,7 +67,7 @@ export default function SendMessage(props) {
     if (sendingMessage) {
       return false;
     } else {
-      props.onChange(1, "", null);
+      props.onChange(1, "", null, null);
     }
   }
 
