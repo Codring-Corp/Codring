@@ -28,6 +28,17 @@ export default function MsgAlert(props) {
         <motion.div className='msg-card' animate={{ scale: 1.3 }}>
           <p className='title'>Nouveau message !</p>
           <p className='body'>{ newMessage.body }</p>
+          { newMessage.gif &&
+            <div className='gif'>
+              <iframe
+                src={newMessage.gif.url}
+                title={newMessage.gif.title}
+                frameBorder='0'
+                width={newMessage.gif.width}
+                height={newMessage.gif.height}
+              />
+            </div>
+          }
           <Link className='author' to={`/profile/${newMessage.author}`}>{ newMessage.author }</Link>
         </motion.div>
       }
@@ -40,5 +51,6 @@ function getMsgTime(message) {
   const initialTime = message.body.length * 200
   
   if (initialTime > 10000) return 10000
+  if (initialTime < 3000) return 3000
   return initialTime
 }
