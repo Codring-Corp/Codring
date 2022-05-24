@@ -57,7 +57,6 @@ export default function GifContainer(props) {
                   frameBorder='0'
                   width={gif.images.fixed_width.width}
                   height={gif.images.fixed_width.height}
-                  
                 />
               </div>
             }) }

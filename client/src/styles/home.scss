@@ -57,32 +57,6 @@
           padding: 2%;
           font-family: sans-serif;
         }
-        .gif-preview {
-          position: absolute;
-          bottom: 110px;
-          left: 45px;
-          display: flex;
-          align-items: center;
-          user-select: none;
-          p {
-            font-size: 14px;
-            padding: 5px 10px;
-            &:nth-child(1) {
-              background: $main-color;
-              border-radius: 20px 0 0 20px;
-              padding-right: 7px;
-              font-weight: 500;
-              font-size: 13px;
-              color: white;
-              border: 2px solid $main-color;
-            }
-            &:nth-child(2) {
-              border: 2px solid $main-color;
-              font-size: 13px;
-              border-radius: 0 20px 20px 0;
-            }
-          }
-        }
         .bottom-span {
           position: absolute;
           right: 46px;
@@ -107,18 +81,51 @@
             }
           }
         }
-        .submitButton {
-          background-color: rgb(102, 0, 204);
-          border-radius: 8px;
-          border: none;
-          color: white;
-          font-weight: bold;
-          padding: 7px 12px;
-          margin: 20px 30px 0 0;
-          cursor: pointer;
-          font-size: 14px;
-          align-self: flex-end;
-          outline: none;
+        .bottom-part {
+          width: calc(100% - 65px);
+          display: flex;
+          align-items: center;
+          .gif-preview {
+            max-width: 250px;
+            display: flex;
+            align-items: center;
+            user-select: none;
+            p {
+              font-size: 14px;
+              padding: 3px 10px;
+              &:nth-child(1) {
+                background: $main-color;
+                border-radius: 20px 0 0 20px;
+                padding-right: 7px;
+                font-weight: 500;
+                font-size: 13px;
+                color: white;
+                border: 2px solid $main-color;
+              }
+              &:nth-child(2) {
+                border: 2px solid $main-color;
+                font-size: 13px;
+                border-radius: 0 20px 20px 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+          .submitButton {
+            position: absolute;
+            right: 33px;
+            background-color: rgb(102, 0, 204);
+            border-radius: 8px;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 7px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            align-self: flex-end;
+            outline: none;
+          }
         }
         .gif-wrapper {
           background: rgba(128, 128, 128, 0.4);

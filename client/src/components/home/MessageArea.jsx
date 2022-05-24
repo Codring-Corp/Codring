@@ -12,7 +12,7 @@ export default function MessageArea(props) {
   function checkValidTextArea(e) {
     // Check if message is not empty
     if (typingCount > 0) {
-      props.onChange(1, message, null);
+      props.onChange(1, message, selectedGif, null);
       e.preventDefault();
     } else {
       alert("Ton message est vide");
@@ -24,8 +24,6 @@ export default function MessageArea(props) {
     setTypingCount(message.length);
   }, [message]);
 
-  console.log(selectedGif);
-  
   return (
     <div className="messageComponent">
       <textarea
@@ -38,22 +36,24 @@ export default function MessageArea(props) {
         value={props.message}
       ></textarea>
       
-      { selectedGif && 
-        <div className="gif-preview">
-          <p>GIF</p>
-          <p>{ selectedGif.title }</p>
-        </div>
-      }
-      
       <div className="bottom-span">
         <span className="gif" onClick={() => setShowGifContainer(true)}>GIF</span>
         <span> {props.message.length} / 256 </span>
       </div>
       
-      <button className="submitButton" onClick={(e) => checkValidTextArea(e)}>
-        {" "}
-        Valider mon message{" "}
-      </button>
+      <div className="bottom-part">
+        { selectedGif &&
+          <div className="gif-preview">
+            <p>GIF</p>
+            <p>{ selectedGif.title }</p>
+          </div>
+        }
+        
+        <button className="submitButton" onClick={(e) => checkValidTextArea(e)}>
+          {" "}
+          Valider mon message{" "}
+        </button>
+      </div>
       
       { showGifContainer && <GifContainer selectedGif={gif => {setSelectedGif(gif);setShowGifContainer(false)}} hideContainer={() => setShowGifContainer(false)} /> }
     </div>

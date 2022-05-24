@@ -23,6 +23,17 @@ export default function MessageCard(props) {
   return (
     <div className='message-card'>
       <p className='content'>{ msg.body }</p>
+      { msg.gif &&
+        <div className='gif'>
+          <iframe
+            src={msg.gif.url}
+            title={msg.gif.title}
+            frameBorder='0'
+            width={msg.gif.width}
+            height={msg.gif.height}
+          />
+        </div>
+      }
       
       <div className='bottom-part'>
         <p className='data'>

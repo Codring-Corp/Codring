@@ -7,7 +7,8 @@ export default function ClaimRewards() {
     return (
         <div className={css.claimRewards}>
             <div className={css.text}>
-                <p>Dernière connexion il y a</p>
+                {/* <p>Dernière connexion il y a</p> */}
+                <p></p>
                 <p>Réclame tes récompenses</p>
             </div>
             <img src={trophy} alt="trophy" />

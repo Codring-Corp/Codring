@@ -91,7 +91,7 @@ export default function SoundArea(props) {
     <div className="soundSelectionContainer">
       <div
         className="leftArrowContainer"
-        onClick={() => props.onChange(0, null, null)}
+        onClick={() => props.onChange(0, null, null, null)}
       ></div>
 
       <div className="radioInputContainer">{radioComponentItems}</div>
@@ -118,7 +118,7 @@ export default function SoundArea(props) {
       <button
         className="fontStyle validSoundBtn"
         tabIndex="-1"
-        onClick={() => props.onChange(2, null, sound)}
+        onClick={() => props.onChange(2, null, null, sound)}
       >
         Choisir cette alerte
       </button>
